@@ -3,8 +3,26 @@
         <title>Yet Another Gallery Application | Zend Framework</title>
         <?php
             echo $this->headLink()->appendStylesheet('/css/bootstrap.css');
+            echo $this->headLink()->appendStylesheet('/css/gallery.css');
             echo $this->headScript()->appendFile('/js/bootstrap.js');
         ?>
     </head>
-<?php echo $this->layout()->content; ?>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="nvabar-inner">
+                    <a class="brand" href="/">Yet Another Gallery Application</a>
+                    <ul class="nav">
+                        <li><a href="/picture/upload">Upload Picture</a></li>
+                        <li><a href="/album/create">Create Album</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="yaga_viewport" class="container">
+            <?php echo $this->layout()->content; ?>
+        </div>
+    </body>
+
 </html>
