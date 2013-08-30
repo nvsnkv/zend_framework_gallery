@@ -1,1 +1,10 @@
+<html>
+    <head>
+        <title>Yet Another Gallery Application | Zend Framework</title>
+        <?php
+            echo $this->headLink()->appendStylesheet('/css/bootstrap.css');
+            echo $this->headScript()->appendFile('/js/bootstrap.js');
+        ?>
+    </head>
 <?php echo $this->layout()->content; ?>
+</html>
