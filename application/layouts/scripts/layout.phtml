@@ -5,6 +5,8 @@
             echo $this->headLink()->appendStylesheet('/css/bootstrap.css');
             echo $this->headLink()->appendStylesheet('/css/gallery.css');
             echo $this->headScript()->appendFile('/js/bootstrap.js');
+            echo $this->headScript()->appendFile('/js/jquery.js');
+            echo $this->headScript()->appendFile('/js/gallery.js');
         ?>
     </head>
     <body>
@@ -12,9 +14,9 @@
             <div class="navbar">
                 <div class="nvabar-inner">
                     <a class="brand" href="/">Yet Another Gallery Application</a>
-                    <ul class="nav">
-                        <li><a href="/picture/upload">Upload Picture</a></li>
-                        <li><a href="/album/create">Create Album</a></li>
+                    <ul class="nav nav-pills">
+                        <li id="nav_upload"><a  href="/picture/upload">Upload Picture</a></li>
+                        <li id="nav_create"><a  href="/album/create">Create Album</a></li>
                     </ul>
                 </div>
             </div>

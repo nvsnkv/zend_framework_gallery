@@ -7,3 +7,13 @@ body {
     max-width: 900;
     margin: 0px auto;
 }
+
+form input,form textarea {
+    width: 600px;
+}
+
+form #description {
+    height: 150px;
+}
+
+.errors { color: darkred; }

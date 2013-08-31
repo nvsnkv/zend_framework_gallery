@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    $("#nav_create").addClass("active");
+</script>
+<h2>Create new album</h2>
+<?php
+    if (!$this->created)
+        echo $this->albumForm;
+    else {
+?>
+     <p>album was successfully created!</p>
+     <?php echo "<a href='/album/".$this->albumId."/'>Continue</a>"; ?>
+
+<?php } ?>
+
+

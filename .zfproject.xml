@@ -11,14 +11,27 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Album">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="create"/>
+        </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="Album"/>
+      </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>
         </layoutScriptsDirectory>
       </layoutsDirectory>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <modelFile modelName="Album"/>
+        <modelFile modelName="AlbumMapper"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Album"/>
+        </dbTableDirectory>
+        <modelFile modelName="Photographer"/>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
@@ -28,6 +41,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Album">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Album">
+            <viewScriptFile forActionName="create"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
