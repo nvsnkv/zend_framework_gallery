@@ -16,4 +16,8 @@ form #description {
     height: 150px;
 }
 
-.errors { color: darkred; }
+.errors { color: darkred;
+
+.thumbnail, .thumbnail img { max-width: 250px; }
+
+.author, .description { padding:10px; max-width: 545px}}

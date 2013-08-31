@@ -2,7 +2,7 @@
 
 class Application_Model_Album
 {
-    const DefaultThumbnail = '/img/thumb_default.jpeg';
+    const DefaultThumbnail = '/img/thumb_default.jpg';
 
     public function __construct($data)
     {
@@ -40,12 +40,17 @@ class Application_Model_Album
         }
     }
 
-    protected $_id;
-    protected $_title;
-    protected $_description;
-    protected $_photographer;
-    protected $_created;
-    protected $_modified;
-    protected $_thumbnail;
+    private $_id;
+    private $_title;
+    private $_description;
+    private $_photographer;
+    private $_created;
+    private $_modified;
+    private $_thumbnail;
+
+    private function getPicruresCount()
+    {
+        return -1;
+    }
 }
 

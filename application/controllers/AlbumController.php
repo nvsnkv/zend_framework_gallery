@@ -10,7 +10,10 @@ class AlbumController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $id = $this->getRequest()->getParam('id');
+        $album = Application_Model_AlbumMapper::load($id);
+
+        $this->view->currentAlbum = $album;
     }
 
     public function createAction()

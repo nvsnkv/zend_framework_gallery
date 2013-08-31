@@ -13,6 +13,13 @@ class Application_Model_AlbumMapper
         return $db->insert($data);
     }
 
+    public static function load($id)
+    {
+        $data = self::getDatabase()->find($id)->current();
+
+        return new Application_Model_Album($data->toArray());
+    }
+
     private static function getDatabase()
     {
         if (!isset(self::$_db))

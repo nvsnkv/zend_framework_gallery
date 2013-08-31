@@ -5,7 +5,7 @@ class Application_Model_Photographer
     public function __construct($data)
     {
         $this->name = $data['photographer'];
-        
+
         if (isset($data['contact_email']))
             $this->email = $data['contact_email'];
 

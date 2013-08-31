@@ -22,5 +22,16 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
+$frontController = Zend_Controller_Front::getInstance();
+$router = $frontController->getRouter();
+
+$router->addRoute('album',
+    new Zend_Controller_Router_Route('album/:id/show', array(
+        'controller' => 'album',
+        'action' => 'index'
+    ))
+);
+
 $application->bootstrap()
             ->run();
