@@ -22,16 +22,35 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
-
 $frontController = Zend_Controller_Front::getInstance();
 $router = $frontController->getRouter();
 
 $router->addRoute('album',
-    new Zend_Controller_Router_Route('album/:id/show', array(
+    new Zend_Controller_Router_Route('Album/:id', array(
         'controller' => 'album',
         'action' => 'index'
     ))
 );
 
+$router->addRoute('edit_album',
+    new Zend_Controller_Router_Route('Album/:id/Edit', array(
+        'controller' => 'album',
+        'action' => 'edit'
+    ))
+);
+
+$router->addRoute('upload_to_album',
+    new Zend_Controller_Router_Route('Album/:id/Upload', array(
+        'controller' => 'album',
+        'action' => 'upload'
+    ))
+);
+
+$router->addRoute('remove_album',
+    new Zend_Controller_Router_Route('Album/:id/Remove', array(
+        'controller' => 'album',
+        'action' => 'remove'
+    ))
+);
 $application->bootstrap()
             ->run();

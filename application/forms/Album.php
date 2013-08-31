@@ -9,6 +9,8 @@ class Application_Form_Album extends Zend_Form
 
     public function init($submitText = 'Create')
     {
+        $this->addElement(new Zend_Form_Element_Hidden("album_id"));
+
         $title = $this->createElement('text', 'title');
         $title->setLabel('Title:')
               ->setRequired(true)

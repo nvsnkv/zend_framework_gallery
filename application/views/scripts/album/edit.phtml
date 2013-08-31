@@ -1,0 +1,10 @@
+<h2>Edit album</h2>
+<?php
+    $this->albumForm->init('Apply');
+    if (!$this->inalidData)
+        $this->albumForm->populate($this->currentAlbum->toArray());
+
+    echo $this->albumForm;
+?>
+
+

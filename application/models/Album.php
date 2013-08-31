@@ -6,12 +6,12 @@ class Application_Model_Album
 
     public function __construct($data)
     {
-        if (isset($data['id']))
-            $this->id = $data['id'];
+        if (isset($data['album_id']))
+            $this->id = $data['album_id'];
 
         $this->title = $data['title'];
-        $this->description = $data['description'];
 
+        $this->description = $data['description'];
 
         $this->created = (isset($data['created'])) ? new Zend_Date($data['created']) : new Zend_Date();
         $this->modified = (isset($data['modified'])) ? new Zend_Date($data['modified']) : new Zend_Date();
@@ -20,6 +20,24 @@ class Application_Model_Album
 
         $this->photographer = new Application_Model_Photographer($data);
     }
+
+    public function toArray()
+    {
+        $result = array();
+        $result['album_id'] = $this->id;
+        $result['title'] = $this->title;
+        $result['description'] = $this->description;
+        $result['created'] = $this->created->get('YYYY-MM-dd HH:mm:ss');
+        $result['modified'] = $this->modified->get('YYYY-MM-dd HH:mm:ss');
+        $result['thumbnail'] = $this->thumbnail;
+
+        $result['photographer'] = $this->photographer->name;
+        $result['contact_email'] = $this->photographer->email;
+        $result['contact_phone'] = $this->photographer->phone;
+
+        return $result;
+    }
+
 
     public function __get($name)
     {

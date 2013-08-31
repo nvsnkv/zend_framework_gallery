@@ -14,13 +14,13 @@ class Zend_View_Helper_Album extends Zend_View_Helper_Abstract
 		            <p> Pictures: '.$album->picturesCount.'</p>
 		            <p>created: '.$album->created.'</p>
 		            <p>last modified: '.$album->modified.'</p>
-		            <a href="/album/'.$album->id.'/edit/">edit</a>
-		            <a href="/album/'.$album->id.'/upload/">upload photo</a>
-		            <a href="/album/'.$album->id.'/remove/">remove</a>
+		            <a href="/Album/'.$album->id.'/Edit/">edit</a>
+		            <a href="/Album/'.$album->id.'/Upload/">upload photo</a>
+		            <a href="/Album/'.$album->id.'/Remove/">remove</a>
 		        </div>
 		        <div class="author pull-right">
 		            <p>by '.$album->photographer->name.'</p>
-		            <a href"mailto:'.$album->photographer->email.'">Send message</a>
+		            <a href"mailto://'.$album->photographer->email.'">'.$album->photographer->email.'</a>
 		            <p>'.$album->photographer->phone.'</p>
 		        </div>
 		        <div class="clearfix" />
