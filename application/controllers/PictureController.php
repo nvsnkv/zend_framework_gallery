@@ -15,7 +15,24 @@ class PictureController extends Zend_Controller_Action
 
     public function uploadAction()
     {
-        // action body
+        $form = new Application_Form_Picture();
+
+        if ($this->getRequest()->isPost())
+        {
+
+            if ($form->isValid($_POST))
+            {
+                $data = $form->getValues();
+                $fileInfo = Application_Model_Picture::prepareFile($data);
+
+                $picture = new Application_Model_Picture(array_merge($fileInfo, $data));
+                Application_Model_PictureMapper::save($picture);
+            }
+        }
+
+        $this->view->albums = Application_Model_AlbumMapper::loadAll();
+
+        $this->view->form = $form;
     }
 
 

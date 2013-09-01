@@ -36,9 +36,11 @@
         <modelFile modelName="AlbumMapper"/>
         <dbTableDirectory>
           <dbTableFile dbTableName="Album"/>
+          <dbTableFile dbTableName="Picture"/>
         </dbTableDirectory>
         <modelFile modelName="Photographer"/>
         <modelFile modelName="Picture"/>
+        <modelFile modelName="PictureMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>

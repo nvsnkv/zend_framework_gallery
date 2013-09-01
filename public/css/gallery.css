@@ -12,7 +12,7 @@ form input,form textarea {
     width: 600px;
 }
 
-form #description {
+form #description, form #location {
     height: 150px;
 }
 
