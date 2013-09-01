@@ -9,7 +9,6 @@ class Application_Model_AlbumMapper
 
         if (is_numeric($data['album_id']))
         {
-            throw new Exception('isset');
             return $db->update($data, array('album_id = ?' => $data['album_id']));
         }
 
@@ -23,6 +22,19 @@ class Application_Model_AlbumMapper
 
         return new Application_Model_Album($data->toArray());
     }
+
+    public static function loadAll()
+    {
+        $rows = self::getDatabase()->fetchAll();
+        $result = array();
+
+        foreach ($rows as $row)
+        {
+            $result[] = new Application_Model_Album($row->toArray());
+        }
+        return $result;
+    }
+
 
     public static function remove($id)
     {

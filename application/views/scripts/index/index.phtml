@@ -1,18 +1,16 @@
+<div class="container">
 <?php
     if (empty($this->albums))
     { ?>
-<div class="container">
     <p>At this moment, application doesn't contains any album.</p>
     <p>You can create new album and start upload your pictures!</p>
     <a href="/album/create">Let's rock!</a>
-</div>
-
 <?php
     }
     else
     {
-?>
-    <p>Cool! There is some albums!</p>
-<?php
+        foreach($this->albums as $album)
+            echo $this->album($album);
     }
 ?>
+</div>
