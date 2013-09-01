@@ -6,10 +6,10 @@ class Zend_View_Helper_Album extends Zend_View_Helper_Abstract
         return '
 		    <div class="albumPreview">
 		        <div class="thumbnail pull-left">
-		            <a href="/album/'.$album->id.'"><img src="'.$album->thumbnail.'"></a>
+		            <a href="/Album/'.$album->id.'"><img src="'.$album->thumbnail.'"></a>
 		        </div>
 		        <div class="description pull-left">
-		            <a href="/album/'.$album->id.'"><h2>'.$album->title.'</h2></a>
+		            <a href="/Album/'.$album->id.'"><h2>'.$album->title.'</h2></a>
 		            <p>'.$album->description.'</p>
 		            <p> Pictures: '.$album->picturesCount.'</p>
 		            <p>created: '.$album->created.'</p>

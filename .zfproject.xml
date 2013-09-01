@@ -17,9 +17,14 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="remove"/>
         </controllerFile>
+        <controllerFile controllerName="Picture">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="upload"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Album"/>
+        <formFile formName="Picture"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -33,6 +38,7 @@
           <dbTableFile dbTableName="Album"/>
         </dbTableDirectory>
         <modelFile modelName="Photographer"/>
+        <modelFile modelName="Picture"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -55,6 +61,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Album">
             <viewScriptFile forActionName="remove"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Picture">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Picture">
+            <viewScriptFile forActionName="upload"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
