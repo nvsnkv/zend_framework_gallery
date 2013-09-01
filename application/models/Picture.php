@@ -39,11 +39,12 @@ class Application_Model_Picture
     {
         switch($name)
         {
+            case 'hash': return $this->_hash;
             case 'title': return $this->_title;
-            case 'location' : return $this->_location;
-            case 'album' : return $this->_album;
-            case 'url' : return $this->getUrl();
-            case 'preview' : return $this->getPreviewUrl();
+            case 'location': return $this->_location;
+            case 'album': return $this->_album;
+            case 'url': return $this->getUrl();
+            case 'preview': return $this->getPreviewUrl();
 
             default: throw new Exception("Picture::$name doesn't exists!");
         }
@@ -63,7 +64,7 @@ class Application_Model_Picture
 
     public function getUrl()
     {
-        return '/img/no_ull.jpg';
+        return '/' . self::CONTENT_DIR . '/' . $this->_hash . '.' . $this->_ext;
     }
 
     public function getPreviewUrl()

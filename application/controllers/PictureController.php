@@ -10,7 +10,8 @@ class PictureController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $picture = Application_Model_PictureMapper::load($this->getRequest()->getParam('hash'));
+        $this->view->picture = $picture;
     }
 
     public function uploadAction()
@@ -27,6 +28,8 @@ class PictureController extends Zend_Controller_Action
 
                 $picture = new Application_Model_Picture(array_merge($fileInfo, $data));
                 Application_Model_PictureMapper::save($picture);
+
+                $this->getResponse()->setRedirect('/Picture/'.$picture->hash.'/');
             }
         }
 
@@ -35,8 +38,18 @@ class PictureController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
+    public function removeAction()
+    {
+        $picture = Application_Model_PictureMapper::load($this->getRequest()->getParam('hash'));
+        Application_Model_PictureMapper::remove($picture->hash);
+
+        $this->getResponse()->setRedirect("/Album/".$picture->album->id);
+    }
+
 
 }
+
+
 
 
 

@@ -52,5 +52,19 @@ $router->addRoute('remove_album',
         'action' => 'remove'
     ))
 );
+
+$router->addRoute('show_picture',
+    new Zend_Controller_Router_Route('Picture/:hash/', array(
+        'controller' => 'picture',
+        'action' => 'index'
+    ))
+);
+
+$router->addRoute('show_picture',
+    new Zend_Controller_Router_Route('Picture/:hash/Remove', array(
+        'controller' => 'picture',
+        'action' => 'remove'
+    ))
+);
 $application->bootstrap()
             ->run();

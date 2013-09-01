@@ -29,5 +29,17 @@ class Application_Model_PictureMapper
     }
 
     private static $_db;
+
+    public static function load($hash)
+    {
+        $data = self::getDatabase()->find($hash)->current();
+
+        return new Application_Model_Picture($data->toArray());
+    }
+
+    public static function remove($hash)
+    {
+        self::getDatabase()->delete($hash);
+    }
 }
 

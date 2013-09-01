@@ -20,6 +20,7 @@
         <controllerFile controllerName="Picture">
           <actionMethod actionName="index"/>
           <actionMethod actionName="upload"/>
+          <actionMethod actionName="remove"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -69,6 +70,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Picture">
             <viewScriptFile forActionName="upload"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Picture">
+            <viewScriptFile forActionName="remove"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

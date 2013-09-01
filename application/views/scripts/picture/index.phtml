@@ -1,4 +1,10 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Picture</b> and script/action name <b>index</b></p>
-</div>
+<h2>
+    <?php echo $this->picture->title ?> |
+    <?php echo '<a href="/Album/'.$this->picture->album->id.'/">'.$this->picture->album->title.'</a>' ?>
+</h2>
+
+<?php
+    echo '<img class="center" src="'.$this->picture->url.'" alt=""/>';
+?>
+<p>Location: <?php echo $this->picture->location ?></p>
+<?php echo '<a href="/Picture/'.$this->picture->hash.'/Remove"> Remove </a>' ?>
