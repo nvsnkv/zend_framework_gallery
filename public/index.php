@@ -60,11 +60,15 @@ $router->addRoute('show_picture',
     ))
 );
 
-$router->addRoute('show_picture',
+$router->addRoute('remove_picture',
     new Zend_Controller_Router_Route('Picture/:hash/Remove', array(
         'controller' => 'picture',
         'action' => 'remove'
     ))
 );
+
+$loader = Zend_Loader_Autoloader::getInstance();
+$loader->registerNamespace('Polycast_');
+
 $application->bootstrap()
             ->run();

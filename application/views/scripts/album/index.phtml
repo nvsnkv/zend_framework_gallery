@@ -1,3 +1,12 @@
 <div class="container">
     <?php echo $this->album($this->currentAlbum); ?>
+    <div class="pictures">
+        <?php
+            foreach($this->currentAlbum->pictures as $picture)
+            {
+                echo $this->pictureThumbnail($picture);
+            }
+        ?>
+    </div>
+
 </div>

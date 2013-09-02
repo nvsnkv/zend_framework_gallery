@@ -16,6 +16,7 @@
           <actionMethod actionName="create"/>
           <actionMethod actionName="edit"/>
           <actionMethod actionName="remove"/>
+          <actionMethod actionName="upload"/>
         </controllerFile>
         <controllerFile controllerName="Picture">
           <actionMethod actionName="index"/>
@@ -73,6 +74,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Picture">
             <viewScriptFile forActionName="remove"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Album">
+            <viewScriptFile forActionName="upload"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

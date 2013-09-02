@@ -83,8 +83,16 @@ class AlbumController extends Zend_Controller_Action
         Application_Model_AlbumMapper::save($album);
     }
 
+    public function uploadAction()
+    {
+        $id = $this->getRequest()->getParam('id');
+        $this->getResponse()->setRedirect("/picture/upload/?albumId=".$id);
+    }
+
 
 }
+
+
 
 
 

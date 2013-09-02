@@ -68,7 +68,12 @@ class Application_Model_Album
 
     private function getPicruresCount()
     {
-        return -1;
+        return Application_Model_PictureMapper::getPicturesCount($this);
+    }
+
+    private function getPictures()
+    {
+        return Application_Model_PictureMapper::getPictures($this);
     }
 }
 

@@ -3,6 +3,7 @@
 class Application_Model_Picture
 {
     const MAX_FILE_SIZE = 20971520;
+    const THUMBNAIL_POSTFIX = '-250x250';
     const CONTENT_DIR = 'content';
 
     public function __construct($data, $album = NULL)
@@ -28,6 +29,16 @@ class Application_Model_Picture
         if (!rename('./' . self::CONTENT_DIR . '/' . $data['upload'], './' . self::CONTENT_DIR . '/' . $hash . '.' . $ext))
             throw new Exception("Couldn't rename uploaded file!");
 
+        $filter = new Polycast_Filter_ImageSize();
+        $filter->getConfig()
+            ->setStrategy(new Polycast_Filter_ImageSize_Strategy_Fit)
+            ->setHeight(250)
+            ->setWidth(250);
+        $filter->filter('./' . self::CONTENT_DIR . '/' . $hash . '.' . $ext);
+
+        if (!rename('./' . $hash . self::THUMBNAIL_POSTFIX . '.' . $ext, './' . self::CONTENT_DIR . '/' . $hash . self::THUMBNAIL_POSTFIX . '.' . $ext ))
+            throw new Exception("Couldn't rename thumbnail!");
+
         $result = array();
         $result['hash'] = $hash;
         $result['ext'] = $ext;
@@ -44,7 +55,7 @@ class Application_Model_Picture
             case 'location': return $this->_location;
             case 'album': return $this->_album;
             case 'url': return $this->getUrl();
-            case 'preview': return $this->getPreviewUrl();
+            case 'thumbnail': return $this->getPreviewUrl();
 
             default: throw new Exception("Picture::$name doesn't exists!");
         }
@@ -69,7 +80,7 @@ class Application_Model_Picture
 
     public function getPreviewUrl()
     {
-        return '/img/no_ull.jpg';
+        return '/' . self::CONTENT_DIR . '/' . $this->_hash . self::THUMBNAIL_POSTFIX . '.' . $this->_ext;
     }
 
     private  $_title;
@@ -77,5 +88,11 @@ class Application_Model_Picture
     private  $_album;
     private  $_hash;
     private  $_ext;
+
+    public function removeFiles()
+    {
+        unlink('./' . $this->_hash . self::THUMBNAIL_POSTFIX . '.' . $this->_ext);
+        unlink('./' . $this->_hash . '.' . $this->_ext);
+    }
 }
 

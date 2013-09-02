@@ -16,6 +16,8 @@ class Application_Model_PictureMapper
            return $db->update($data,array('hash = ?' => $data['hash']));
        }
 
+
+
        return $db->insert($data);
     }
 
@@ -39,7 +41,27 @@ class Application_Model_PictureMapper
 
     public static function remove($hash)
     {
-        self::getDatabase()->delete($hash);
+        $db = self::getDatabase();
+
+        $db->delete(array(' `hash` = ? ' => $hash));
+    }
+
+    public static function getPicturesCount($album)
+    {
+        $set = self::getDatabase()->fetchAll(array("`album_id` = ?" => $album->id));
+
+        return count($set);
+    }
+
+    public static function getPictures($album)
+    {
+        $set = self::getDatabase()->fetchAll(array("`album_id` = ?" => $album->id));
+        $result = array();
+
+        foreach ($set as $row)
+            $result[] = new Application_Model_Picture($row->toArray());
+
+        return $result;
     }
 }
 
