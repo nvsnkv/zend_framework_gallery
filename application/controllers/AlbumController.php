@@ -72,6 +72,13 @@ class AlbumController extends Zend_Controller_Action
     public function removeAction()
     {
         $id = $this->getRequest()->getParam('id');
+        $album = Application_Model_AlbumMapper::load($id);
+
+        foreach ($album->pictures as $picture)
+        {
+            $picture->removeFiles();
+            Application_Model_PictureMapper::remove($picture->hash);
+        }
 
         Application_Model_AlbumMapper::remove($id);
     }
